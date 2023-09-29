@@ -1,16 +1,23 @@
 <launch>
   <include
-    file="$(find gazebo_ros)/launch/empty_world.launch" />
+    file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find tracer_mini)/worlds/weston_robot_empty.world"/>
+      <arg name="paused" value="false"/>
+      <arg name="use_sim_time" value="true"/>
+      <arg name="gui" value="true"/>
+      <arg name="headless" value="false"/>
+      <arg name="debug" value="false"/>
+  </include>
   <node
-    name="tf_footprint_base"
-    pkg="tf"
+    name="odom_to_base_footprint_tf_broadcaster"
+    pkg="tf2_ros"
     type="static_transform_publisher"
-    args="0 0 0 0 0 0 base_link base_footprint 40" />
+    args="0 0 0 0 0 0 odom base_footprint" />
   <node
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find tracer_mini)/urdf/tracer_mini.urdf -urdf -model tracer_mini"
+    args="-file $(find tracer_mini)/urdf/tracer_mini.xacro -urdf -model tracer_mini"
     output="screen" />
   <node
     name="fake_joint_calibration"
