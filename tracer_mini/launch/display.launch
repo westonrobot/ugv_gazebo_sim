@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find tracer_mini)/urdf/tracer_mini.xacro" />
+    command="$(find xacro)/xacro $(find tracer_mini)/urdf/tracer_mini.urdf.xacro" />
   <node
     name="joint_state_publisher"
     pkg="joint_state_publisher"
