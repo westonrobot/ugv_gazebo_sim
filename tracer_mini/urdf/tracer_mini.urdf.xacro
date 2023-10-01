@@ -3,7 +3,20 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="tracer_mini" xmlns:xacro="http://ros.org/wiki/xacro">
+
   <xacro:include filename="$(find tracer_mini)/urdf/tracer_mini.gazebo.xacro"/>
+
+  <material name="black">
+    <color rgba= "0 0 0 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="light_black">
+    <color rgba="0.4 0.4 0.4 1.0" />
+  </material>
 
   <link name = "base_footprint" />
 
@@ -32,10 +45,7 @@
           filename="package://tracer_mini/meshes/base_link.STL" />
       </geometry>
       <material
-        name="white">
-        <color
-          rgba="1 1 1 1" />
-      </material>
+        name="white"/>
     </visual>
     <collision>
       <origin
@@ -55,7 +65,7 @@
     <child
       link="base_link"/>
     <origin 
-      xyz="0.0 0.0 0.0" 
+      xyz="0.0 0.0 0.010" 
       rpy="0 0 0"/>
   </joint>
 
@@ -83,10 +93,7 @@
         <cylinder radius="0.01" length="0.01"/>
       </geometry>
       <material
-        name="black">
-        <color
-          rgba="0 0 0 1" />
-      </material>
+        name="black"/>
     </visual>
     <collision>
       <origin
@@ -134,10 +141,7 @@
         <cylinder radius="0.01" length="0.01"/>
       </geometry>
       <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
+        name="black"/>
     </visual>
     <collision>
       <origin
@@ -185,10 +189,7 @@
         <cylinder radius="0.01" length="0.01"/>
       </geometry>
       <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
+        name="light_black"/>
     </visual>
     <collision>
       <origin
@@ -236,10 +237,7 @@
         <cylinder radius="0.01" length="0.01"/>
       </geometry>
       <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
+        name="light_black"/>
     </visual>
     <collision>
       <origin
@@ -263,6 +261,8 @@
     <axis
       xyz="0 0 1" />
   </joint>
+</robot>
+
   <!-- <link
     name="laser_Link">
     <inertial>
@@ -369,28 +369,3 @@
     <axis
       xyz="0 0 0" />
   </joint> -->
-  <gazebo>
-    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <odometrySource>map</odometrySource>
-      <publishOdomTF>true</publishOdomTF>
-      <publishOdom>true</publishOdom>
-      <robotBaseFrame>base_footprint</robotBaseFrame>
-      <publishWheelTF>true</publishWheelTF>
-      <publishTf>true</publishTf>
-      <publishWheelJointState>true</publishWheelJointState>
-      <legacyMode>false</legacyMode>
-      <updateRate>10</updateRate>
-      <leftJoint>fl_joint</leftJoint>
-      <rightJoint>fr_joint</rightJoint>
-      <wheelSeparation>0.2108</wheelSeparation>
-      <wheelDiameter>0.02</wheelDiameter>
-      <wheelAcceleration>1.0</wheelAcceleration>
-      <wheelTorque>10</wheelTorque>
-      <rosDebugLevel>na</rosDebugLevel>
-    </plugin>
-  </gazebo>
-</robot>
-

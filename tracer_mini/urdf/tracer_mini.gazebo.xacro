@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="tracer_mini_burger_sim" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="tracer_mini_sim" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <gazebo reference="base_link">
     <material>Gazebo/White</material>
@@ -46,4 +46,29 @@
     <maxVel>1.0</maxVel>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <!-- <odometrySource>1</odometrySource> -->
+      <publishOdomTF>true</publishOdomTF>
+      <publishOdom>true</publishOdom>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishWheelTF>false</publishWheelTF>
+      <publishTf>true</publishTf>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <updateRate>10</updateRate>
+      <leftJoint>fl_joint</leftJoint>
+      <rightJoint>fr_joint</rightJoint>
+      <wheelSeparation>0.2108</wheelSeparation>
+      <wheelDiameter>0.02</wheelDiameter>
+      <wheelAcceleration>1.0</wheelAcceleration>
+      <wheelTorque>10</wheelTorque>
+      <rosDebugLevel>na</rosDebugLevel>
+    </plugin>
+  </gazebo>
+
 </robot>
