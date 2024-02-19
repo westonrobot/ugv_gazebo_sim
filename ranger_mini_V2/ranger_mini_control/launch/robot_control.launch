@@ -18,7 +18,7 @@
         <param name="default_topic" value="/four_wheel_steering_controller/cmd_vel"/>                        
         <param name="default_vx_max" value="5.0"/>                        
         <param name="default_vx_min" value="-5.0"/>                       
-        <param name="default_vw_max" value="3.69"/>                  
-        <param name="default_vw_min" value="-3.69"/>                  
+        <param name="default_vw_max" value="2.1"/>                  
+        <param name="default_vw_min" value="-2.1"/>                  
         </node>
 </launch>
