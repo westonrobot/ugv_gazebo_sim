@@ -37,7 +37,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://ranger_mini_v2/meshes/fl.dae" />
+                    <mesh filename="package://ranger_mini_v2/meshes/Wheel_FL_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
             <collision>
