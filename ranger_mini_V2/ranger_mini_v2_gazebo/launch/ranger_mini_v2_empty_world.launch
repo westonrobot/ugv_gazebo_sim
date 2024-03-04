@@ -1,7 +1,7 @@
 <launch>
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="model" default="$(find ranger_mini_v2_gazebo)/xacro/ranger_mini_gazebo.xacro"/>
+  <arg name="model" default="$(find ranger_mini_v2_gazebo)/xacro/ranger_mini_gazebo_b.xacro"/>
   <!-- <arg name="model" default="$(find fourth_robot_description)/robots/fourth_robot.urdf.xacro"/> -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
